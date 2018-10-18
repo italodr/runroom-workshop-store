@@ -45,15 +45,24 @@ const cars = [
   }
 ];
 
-const carstore = {
-  printDetails: function(car) {
+function carstore() {
+  const privateConst = 12345;
+
+  function printDetails(car) {
     console.log(car.model + ' - ' + brands[car.brand]);
     console.log(car.price + ' (' + car.stock + ')');
-  },
-  printAllCars: function() {
-    cars.map(car => this.printDetails(car));
-  },
-  mostExpensive: cars.reduce((a, b) => (b.price > a.price ? b : a))
-};
+  }
 
-export default carstore;
+  function printAllCars() {
+    cars.map(car => this.printDetails(car));
+  }
+
+  const mostExpensive = cars.reduce((a, b) => (b.price > a.price ? b : a));
+
+  return {
+    getMostExpensive: mostExpensive,
+    printDetails
+  };
+}
+
+export default carstore();
