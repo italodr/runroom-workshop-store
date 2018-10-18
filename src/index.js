@@ -1,3 +1,5 @@
-import { mostExpensive, printAllCars, printDetails } from './carstore';
+import carstore from './carstore';
 
-printDetails(mostExpensive);
+carstore.printDetails(carstore.mostExpensive);
+
+//carstore.printAllCars();
