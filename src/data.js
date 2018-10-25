@@ -1,4 +1,7 @@
-import brands from './brands.json';
+const brands = {
+  brand1: 'Volkswagen',
+  brand2: 'Audi'
+};
 
 const cars = [
   {
@@ -45,24 +48,4 @@ const cars = [
   }
 ];
 
-function carstore() {
-  const privateConst = 12345;
-
-  function printDetails(car) {
-    console.log(car.model + ' - ' + brands[car.brand]);
-    console.log(car.price + ' (' + car.stock + ')');
-  }
-
-  function printAllCars() {
-    cars.map(car => this.printDetails(car));
-  }
-
-  const mostExpensive = cars.reduce((a, b) => (b.price > a.price ? b : a));
-
-  return {
-    getMostExpensive: mostExpensive,
-    printDetails
-  };
-}
-
-export default carstore();
+export { brands, cars };

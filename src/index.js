@@ -1,9 +1,32 @@
-import carstore from './carstore';
+//import carstore from './carstore/singleton-pattern';
+//import carstore from './carstore/module-pattern';
+import carstore from './carstore/revealing-module-pattern';
+import { brands, cars } from './data';
 
-carstore.printDetails(carstore.getMostExpensive);
+function commonThings() {
+  const mostExpensiveCar = carstore.getMostExpensive();
+  carstore.showCar(mostExpensiveCar);
+  console.log('--------------');
+  carstore.listCars();
+}
 
-//carstore.printAllCars();
+// Singleton Pattern
+function singletonPattern() {
+  commonThings();
+}
 
-//console.log(carstore.getMostExpensive);
+// Module Pattern
+function modulePattern() {
+  commonThings();
+}
 
-console.log(carstore);
+// Revealing Module Pattern
+function revealingModulePattern() {
+  carstore.setBrands(brands);
+  carstore.setCars(cars);
+  commonThings();
+}
+
+//singletonPattern();
+//modulePattern();
+revealingModulePattern();
